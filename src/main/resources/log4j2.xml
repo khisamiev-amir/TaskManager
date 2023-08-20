@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"> <!---->
+    <Appenders><!--Куда выводим логи и в каком формате-->
+        <Console name="Console" target="SYSTEM_OUT"><!--выводим в консоль-->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="File1" fileName="src/main/resources/output.log" bufferedIO="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+
+        <!--<Logger name="database.SaveToDB" level="trace" это нужно для отдельного описания того, как будет логироваться
+                additivity="false">    additivity="false" нужен для недублирования логов
+            <AppenderRef ref="Console"/>   куда будут записываться логи
+            <AppenderRef ref="File1"/>
+        </Logger>-->
+        <Root level="info"><!--Всё что в Root это main-->
+            <AppenderRef ref="Console"/><!--должно совпадать с Console name="Console"(4 строка)-->
+            <AppenderRef ref="File1"/>
+        </Root>
+    </Loggers>
+</Configuration>
