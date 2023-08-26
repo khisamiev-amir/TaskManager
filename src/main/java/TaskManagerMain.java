@@ -12,10 +12,11 @@ import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
+@Slf4j
 
 public class TaskManagerMain {
-    public static Logger logger = LogManager.getLogger(TaskManagerMain.class); /*нужен для того, чтобы после добавления логирования
-    все логи сохранялись в этот объект*/
+    // public static Logger logger = LogManager.getLogger(TaskManagerMain.class); /*нужен для того, чтобы после добавления логирования
+    //  все логи сохранялись в этот объект*/
 
     public static void main(String[] args) throws IOException, ParseException, java.text.ParseException {
 
@@ -26,16 +27,23 @@ public class TaskManagerMain {
             System.out.println("Выберите действие:\n1.Создать задачу\n2.Обновить задачу\n3.Найти задачу\n4.Удалить задачу\n5.Остановить программу");
             int choice = scanner.nextInt();
             if (choice == 1) {
+                log.info("Выбрано Создать задачу");
+                log.warn("sdfdsf");
+                log.error("sdfsdfsddd");
                 JSONObject jsonObject = taskController.choiceTask();
                 taskController.addInDB(jsonObject);
             } else if (choice == 3) {
+                log.info("Выбрано Обновить задачу");
                 JSONArray jsonArray = taskController.getInDBAll();
                 taskController.getInDB(jsonArray);
             } else if (choice == 2) {
+                log.info("Выбрано Найти задачу");
                 taskController.updateTask();
             } else if (choice == 4) {
+                log.info("Выбрано Удалить задачу");
                 taskController.deleteTask();
             } else if (choice == 5) {
+                log.info("Выбрано Остановить программу");
                 break;
             }
         }

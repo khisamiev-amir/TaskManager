@@ -15,7 +15,7 @@
             <AppenderRef ref="Console"/>   куда будут записываться логи
             <AppenderRef ref="File1"/>
         </Logger>-->
-        <Root level="info"><!--Всё что в Root это main-->
+        <Root level="ERROR"><!--Всё что в Root это main-->
             <AppenderRef ref="Console"/><!--должно совпадать с Console name="Console"(4 строка)-->
             <AppenderRef ref="File1"/>
         </Root>
